@@ -1,0 +1,1 @@
+drop index IDX_FINZPIX_TIPO__EGRESOS_UNQ ;

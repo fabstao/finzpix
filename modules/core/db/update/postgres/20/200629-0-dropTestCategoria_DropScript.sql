@@ -1,0 +1,1 @@
+drop table if exists FINZPIX_TEST_CATEGORIA__U36042 cascade ;

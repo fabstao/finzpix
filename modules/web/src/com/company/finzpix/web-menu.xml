@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<menu-config xmlns="http://schemas.haulmont.com/cuba/menu.xsd">
+    <menu id="application-finzpix" insertBefore="administration">
+        <item screen="finzpix_Categoria_Egresos.browse"/>
+        <item screen="finzpix_Tipo_Egresos.browse"/>
+        <item screen="finzpix_Balance.browse"/>
+        <item screen="finzpix_Egreso.browse"/>
+        <item screen="finzpix_Ingresos.browse"/>
+        <item screen="finzpix_Usuarios.browse"/>
+    </menu>
+</menu-config>

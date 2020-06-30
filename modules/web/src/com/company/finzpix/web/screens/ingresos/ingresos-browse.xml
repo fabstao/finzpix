@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        xmlns:c="http://schemas.haulmont.com/cuba/screen/jpql_condition.xsd"
+        caption="msg://browseCaption"
+        focusComponent="ingresosesTable"
+        messagesPack="com.company.finzpix.web.screens.ingresos">
+    <data readOnly="true">
+        <collection id="ingresosesDc"
+                    class="com.company.finzpix.entity.Ingresos"
+        >
+            <view extends="_local">
+                <property name="usuario" view="_minimal">
+                    <property name="email"/>
+                </property>
+            </view>
+            <loader id="ingresosesDl">
+                <query>
+                    <![CDATA[select e from finzpix_Ingresos e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="ingresosesTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="ingresosesTable"
+                dataLoader="ingresosesDl">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="ingresosesTable"
+                    width="100%"
+                    dataContainer="ingresosesDc">
+            <actions>
+                <action id="create" type="create"/>
+                <action id="edit" type="edit"/>
+                <action id="remove" type="remove"/>
+                <action id="refresh" type="refresh"/>
+                <action id="add" type="add"/>
+            </actions>
+            <columns>
+                <column id="tipo"/>
+                <column id="cantidad"/>
+                <column id="usuario"/>
+            </columns>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn" action="ingresosesTable.create"/>
+                <button id="editBtn" action="ingresosesTable.edit"/>
+                <button id="removeBtn" action="ingresosesTable.remove"/>
+                <button id="refreshBtn" action="ingresosesTable.refresh"/>
+                <button id="addBtn" action="ingresosesTable.add"/>
+            </buttonsPanel>
+        </groupTable>
+        <hbox id="lookupActions" spacing="true" visible="false">
+            <button action="lookupSelectAction"/>
+            <button action="lookupCancelAction"/>
+        </hbox>
+    </layout>
+</window>

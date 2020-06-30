@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        xmlns:c="http://schemas.haulmont.com/cuba/screen/jpql_condition.xsd"
+        caption="msg://browseCaption"
+        focusComponent="usuariosesTable"
+        messagesPack="com.company.finzpix.web.screens.usuarios">
+    <data readOnly="true">
+        <collection id="usuariosesDc"
+                    class="com.company.finzpix.entity.Usuarios"
+                    view="_local">
+            <loader id="usuariosesDl">
+                <query>
+                    <![CDATA[select e from finzpix_Usuarios e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="usuariosesTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="usuariosesTable"
+                dataLoader="usuariosesDl">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="usuariosesTable"
+                    width="100%"
+                    dataContainer="usuariosesDc">
+            <actions>
+                <action id="create" type="create"/>
+                <action id="edit" type="edit"/>
+                <action id="remove" type="remove"/>
+                <action id="refresh" type="refresh"/>
+                <action id="add" type="add"/>
+                <action id="excel" type="excel"/>
+            </actions>
+            <columns>
+                <column id="nombre"/>
+                <column id="email"/>
+            </columns>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn" action="usuariosesTable.create"/>
+                <button id="editBtn" action="usuariosesTable.edit"/>
+                <button id="removeBtn" action="usuariosesTable.remove"/>
+                <button id="refreshBtn" action="usuariosesTable.refresh"/>
+                <button id="addBtn" action="usuariosesTable.add"/>
+                <button id="excelBtn" action="usuariosesTable.excel"/>
+            </buttonsPanel>
+        </groupTable>
+        <hbox id="lookupActions" spacing="true" visible="false">
+            <button action="lookupSelectAction"/>
+            <button action="lookupCancelAction"/>
+        </hbox>
+    </layout>
+</window>

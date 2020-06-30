@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        xmlns:c="http://schemas.haulmont.com/cuba/screen/jpql_condition.xsd"
+        caption="msg://browseCaption"
+        focusComponent="balancesTable"
+        messagesPack="com.company.finzpix.web.screens.balance">
+    <data readOnly="true">
+        <collection id="balancesDc"
+                    class="com.company.finzpix.entity.Balance"
+                    view="_local">
+            <loader id="balancesDl">
+                <query>
+                    <![CDATA[select e from finzpix_Balance e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="balancesTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="balancesTable"
+                dataLoader="balancesDl">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="balancesTable"
+                    width="100%"
+                    dataContainer="balancesDc">
+            <actions>
+                <action id="create" type="create"/>
+                <action id="remove" type="remove"/>
+            </actions>
+            <columns>
+                <column id="descripcion"/>
+                <column id="balance"/>
+            </columns>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn" action="balancesTable.create"/>
+                <button id="removeBtn" action="balancesTable.remove"/>
+            </buttonsPanel>
+        </groupTable>
+        <hbox id="lookupActions" spacing="true" visible="false">
+            <button action="lookupSelectAction"/>
+            <button action="lookupCancelAction"/>
+        </hbox>
+    </layout>
+</window>

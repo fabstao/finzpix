@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        xmlns:c="http://schemas.haulmont.com/cuba/screen/jpql_condition.xsd"
+        caption="msg://browseCaption"
+        focusComponent="egresoesTable"
+        messagesPack="com.company.finzpix.web.screens.egreso">
+    <data readOnly="true">
+        <collection id="egresoesDc"
+                    class="com.company.finzpix.entity.Egreso"
+        >
+            <view extends="_local">
+                <property name="tipo" view="_minimal" />
+                <property name="usuario" view="_minimal"/>
+            </view>
+            <loader id="egresoesDl">
+                <query>
+                    <![CDATA[select e from finzpix_Egreso e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="egresoesTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="egresoesTable"
+                dataLoader="egresoesDl">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="egresoesTable"
+                    width="100%"
+                    dataContainer="egresoesDc">
+            <actions>
+                <action id="create" type="create"/>
+                <action id="edit" type="edit"/>
+                <action id="remove" type="remove"/>
+                <action id="refresh" type="refresh"/>
+                <action id="add" type="add"/>
+            </actions>
+            <columns>
+                <column id="descripcion"/>
+                <column id="cantidad"/>
+                <column id="fecha"/>
+                <column id="tipo"/>
+                <column id="usuario"/>
+            </columns>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn" action="egresoesTable.create"/>
+                <button id="editBtn" action="egresoesTable.edit"/>
+                <button id="removeBtn" action="egresoesTable.remove"/>
+                <button id="refreshBtn" action="egresoesTable.refresh"/>
+                <button id="addBtn" action="egresoesTable.add"/>
+            </buttonsPanel>
+        </groupTable>
+        <hbox id="lookupActions" spacing="true" visible="false">
+            <button action="lookupSelectAction"/>
+            <button action="lookupCancelAction"/>
+        </hbox>
+    </layout>
+</window>

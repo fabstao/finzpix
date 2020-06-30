@@ -1,0 +1,1 @@
+create unique index IDX_FINZPIX_TIPO__EGRESOS_UNQ_1 on FINZPIX_TIPO_EGRESOS (CATEGORIA_ID) where DELETE_TS is null ;

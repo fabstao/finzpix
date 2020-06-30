@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        xmlns:c="http://schemas.haulmont.com/cuba/screen/jpql_condition.xsd"
+        caption="msg://browseCaption"
+        focusComponent="categoria_EgresosesTable"
+        messagesPack="com.company.finzpix.web.screens.categoria_egresos">
+    <data readOnly="true">
+        <collection id="categoria_EgresosesDc"
+                    class="com.company.finzpix.entity.Categoria_Egresos"
+                    view="_local">
+            <loader id="categoria_EgresosesDl">
+                <query>
+                    <![CDATA[select e from finzpix_Categoria_Egresos e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="categoria_EgresosesTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="categoria_EgresosesTable"
+                dataLoader="categoria_EgresosesDl">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="categoria_EgresosesTable"
+                    width="100%"
+                    dataContainer="categoria_EgresosesDc">
+            <actions>
+                <action id="create" type="create"/>
+                <action id="edit" type="edit"/>
+                <action id="remove" type="remove"/>
+            </actions>
+            <columns>
+                <column id="categoria"/>
+            </columns>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn" action="categoria_EgresosesTable.create"/>
+                <button id="editBtn" action="categoria_EgresosesTable.edit"/>
+                <button id="removeBtn" action="categoria_EgresosesTable.remove"/>
+            </buttonsPanel>
+        </groupTable>
+        <hbox id="lookupActions" spacing="true" visible="false">
+            <button action="lookupSelectAction"/>
+            <button action="lookupCancelAction"/>
+        </hbox>
+    </layout>
+</window>

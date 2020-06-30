@@ -1,0 +1,2 @@
+create unique index IDX_FINZPIX_TIPO__EGRESOS_UNQ on FINZPIX_TIPO_EGRESOS (ID) where DELETE_TS is null ;
+create unique index IDX_FINZPIX_TIPO_EGRESOS_UK_TIPO on FINZPIX_TIPO_EGRESOS (TIPO) where DELETE_TS is null ;
