@@ -7,5 +7,6 @@
         <item screen="finzpix_Egreso.browse"/>
         <item screen="finzpix_Ingresos.browse"/>
         <item screen="finzpix_Usuarios.browse"/>
+        <item screen="finzpix_Balanceselector"/>
     </menu>
 </menu-config>

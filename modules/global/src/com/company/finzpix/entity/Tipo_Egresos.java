@@ -10,9 +10,10 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 @NamePattern("%s|tipo")
-@Table(name = "FINZPIX_TIPO_EGRESOS", uniqueConstraints = {
-        @UniqueConstraint(name = "IDX_FINZPIX_TIPO__EGRESOS_UNQ", columnNames = {"ID"}),
-        @UniqueConstraint(name = "IDX_FINZPIX_TIPO__EGRESOS_UNQ_1", columnNames = {"CATEGORIA_ID"})
+@Table(name = "FINZPIX_TIPO_EGRESOS", indexes = {
+        @Index(name = "IDX_FINZPIX_TIPO__EGRESOS", columnList = "CATEGORIA_ID")
+}, uniqueConstraints = {
+        @UniqueConstraint(name = "IDX_FINZPIX_TIPO__EGRESOS_UNQ", columnNames = {"ID"})
 })
 @Entity(name = "finzpix_Tipo_Egresos")
 public class Tipo_Egresos extends StandardEntity {

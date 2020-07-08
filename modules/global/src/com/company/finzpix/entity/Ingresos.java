@@ -7,6 +7,7 @@ import com.haulmont.cuba.core.global.DeletePolicy;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.time.LocalDateTime;
 
 @Table(name = "FINZPIX_INGRESOS", uniqueConstraints = {
         @UniqueConstraint(name = "IDX_FINZPIX_INGRESOS_UNQ", columnNames = {"ID"})
@@ -19,6 +20,10 @@ public class Ingresos extends StandardEntity {
     protected String tipo;
 
     @NotNull
+    @Column(name = "FECHA", nullable = false)
+    protected LocalDateTime fecha;
+
+    @NotNull
     @OnDeleteInverse(DeletePolicy.UNLINK)
     @OnDelete(DeletePolicy.DENY)
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
@@ -28,6 +33,14 @@ public class Ingresos extends StandardEntity {
     @NotNull
     @Column(name = "CANTIDAD", nullable = false)
     protected Double cantidad;
+
+    public LocalDateTime getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(LocalDateTime fecha) {
+        this.fecha = fecha;
+    }
 
     public Double getCantidad() {
         return cantidad;

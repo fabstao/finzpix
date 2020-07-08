@@ -43,6 +43,7 @@
                 <column id="tipo"/>
                 <column id="cantidad"/>
                 <column id="usuario"/>
+                <column id="fecha"/>
             </columns>
             <rowsCount/>
             <buttonsPanel id="buttonsPanel"

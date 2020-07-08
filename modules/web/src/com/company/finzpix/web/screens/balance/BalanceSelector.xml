@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://caption"
+        messagesPack="com.company.finzpix.web.screens.balance">
+    <layout>
+        <tabSheet>
+            <tab id="balanceSelectorTab" caption="Obtener Balance">
+                <dateField id="fechaInicio" caption="Fecha Inicio">
+                    <validators>
+                        <notNull message="Dato Obligatorio"/>
+                    </validators>
+                </dateField>
+                <dateField id="fechaTermino" caption="Fecha Término">
+                    <validators>
+                        <notNull message="Dato Obligatorio"/>
+                    </validators>
+                </dateField>
+                <button id="botonSelector" caption="Obtener Balance"/>
+                <textArea id="balanceText"/>
+            </tab>
+        </tabSheet>
+    </layout>
+</window>

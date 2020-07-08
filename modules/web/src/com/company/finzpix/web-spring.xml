@@ -7,5 +7,13 @@
     <context:component-scan base-package="com.company.finzpix"/>
     
     <gui:screens base-packages="com.company.finzpix.web"/>
+    <bean id="finzpix_proxyCreator" class="com.haulmont.cuba.web.sys.remoting.WebRemoteProxyBeanCreator">
+        <property name="serverSelector" ref="cuba_ServerSelector"/>
+        <property name="remoteServices">
+            <map>
+                <entry key="finzpix_BalanceCalcService" value="com.company.finzpix.service.BalanceCalcService"/>
+            </map>
+        </property>
+    </bean>
 
 </beans>

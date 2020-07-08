@@ -21,6 +21,7 @@
                 <textField id="tipoField" property="tipo"/>
                 <textField id="cantidadField" property="cantidad"/>
                 <pickerField id="usuarioField" property="usuario"/>
+                <dateField id="fechaField" property="fecha"/>
             </column>
         </form>
         <hbox id="editActions" spacing="true">

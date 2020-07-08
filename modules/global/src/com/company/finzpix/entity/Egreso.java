@@ -8,7 +8,7 @@ import com.haulmont.cuba.core.global.DeletePolicy;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 @Table(name = "FINZPIX_EGRESO", uniqueConstraints = {
         @UniqueConstraint(name = "IDX_FINZPIX_EGRESO_UNQ", columnNames = {"ID"})
@@ -38,10 +38,17 @@ public class Egreso extends StandardEntity {
     @Column(name = "CANTIDAD", nullable = false)
     protected Double cantidad;
 
-    @Temporal(TemporalType.DATE)
     @NotNull
     @Column(name = "FECHA", nullable = false)
-    protected Date fecha;
+    protected LocalDateTime fecha;
+
+    public LocalDateTime getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(LocalDateTime fecha) {
+        this.fecha = fecha;
+    }
 
     public String getDescripcion() {
         return descripcion;
@@ -65,14 +72,6 @@ public class Egreso extends StandardEntity {
 
     public Tipo_Egresos getTipo() {
         return tipo;
-    }
-
-    public Date getFecha() {
-        return fecha;
-    }
-
-    public void setFecha(Date fecha) {
-        this.fecha = fecha;
     }
 
     public Double getCantidad() {

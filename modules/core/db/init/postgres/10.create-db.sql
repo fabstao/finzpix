@@ -30,7 +30,7 @@ create table FINZPIX_EGRESO (
     USUARIO_ID uuid not null,
     DESCRIPCION varchar(255) not null,
     CANTIDAD double precision not null,
-    FECHA date not null,
+    FECHA timestamp not null,
     --
     primary key (ID)
 )^
@@ -46,8 +46,10 @@ create table FINZPIX_BALANCE (
     DELETE_TS timestamp,
     DELETED_BY varchar(50),
     --
-    DESCRIPCION varchar(255) not null,
     BALANCE double precision not null,
+    DESCRIPCION varchar(255) not null,
+    FECHA_INICIO timestamp not null,
+    FECHA_TERMINO timestamp not null,
     --
     primary key (ID)
 )^
@@ -64,6 +66,7 @@ create table FINZPIX_INGRESOS (
     DELETED_BY varchar(50),
     --
     TIPO varchar(150),
+    FECHA timestamp not null,
     USUARIO_ID uuid not null,
     CANTIDAD double precision not null,
     --
