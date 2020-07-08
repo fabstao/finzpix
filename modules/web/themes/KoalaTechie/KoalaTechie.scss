@@ -1,0 +1,8 @@
+@import "../havana/havana";
+
+@mixin KoalaTechie {
+  @include havana;
+  .c-inverse-header.c-app-menubar {
+      border-bottom: 1px solid #fff;
+    }
+}

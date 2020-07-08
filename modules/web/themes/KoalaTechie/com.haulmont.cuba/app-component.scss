@@ -1,0 +1,5 @@
+@import "../KoalaTechie";
+
+@mixin com_haulmont_cuba {
+  @include KoalaTechie;
+}
