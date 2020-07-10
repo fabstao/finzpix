@@ -1,7 +1,12 @@
 # FINZ Pix
 _______________________________
 
-## Prealpha version
+## Personal Finance Fullstack Demo
+
+1. Developed on CUBA - Java Spring based
+
+2. PostgreSQL database
+
 
 ## TODO
 
